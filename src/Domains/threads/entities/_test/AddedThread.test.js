@@ -1,4 +1,4 @@
-const AddedThread = require("../entities/AddedThread");
+const AddedThread = require("../AddedThread");
 
 describe("AddedThread Entity", () => {
   it("throws an error when payload lacks necessary properties", () => {

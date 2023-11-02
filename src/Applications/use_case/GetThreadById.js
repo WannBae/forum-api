@@ -11,24 +11,31 @@ class GetThreadByIdUseCase {
       this._threadRepository.getRepliesByThreadId(threadId),
     ]);
 
-    const processedComments = comments.map((comment) => ({
-      id: comment.id,
-      username: comment.username,
-      date: comment.date,
-      content: comment.is_deleted
-        ? "**komentar telah dihapus**"
-        : comment.content,
-      replies: replies
-        .filter((reply) => reply.comment_id === comment.id)
-        .map((reply) => ({
-          id: reply.id,
-          content: reply.is_deleted
-            ? "**balasan telah dihapus**"
-            : reply.content,
-          date: reply.date,
-          username: reply.username,
-        })),
-    }));
+    function formatComment(comment) {
+      return {
+        id: comment.id,
+        username: comment.username,
+        date: comment.date,
+        content: comment.is_deleted
+          ? "**komentar telah dihapus**"
+          : comment.content,
+        replies: formatReplies(comment.id),
+      };
+    }
+
+    function formatReplies(commentId) {
+      const relevantReplies = replies.filter(
+        (reply) => reply.comment_id === commentId
+      );
+      return relevantReplies.map((reply) => ({
+        id: reply.id,
+        content: reply.is_deleted ? "**balasan telah dihapus**" : reply.content,
+        date: reply.date,
+        username: reply.username,
+      }));
+    }
+
+    const processedComments = comments.map(formatComment);
 
     return {
       ...thread,

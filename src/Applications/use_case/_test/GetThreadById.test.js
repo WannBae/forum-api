@@ -59,13 +59,13 @@ describe("GetThreadUseCase", () => {
     /** mocking needed function */
     mockThreadRepository.getThreadById = jest
       .fn()
-      .mockImplementation(() => Promise.resolve(expectedThread));
+      .mockResolvedValue(expectedThread);
     mockCommentRepository.getCommentsByThreadId = jest
       .fn()
-      .mockImplementation(() => Promise.resolve(expectedComments));
+      .mockResolvedValue(expectedComments);
     mockThreadRepository.getRepliesByThreadId = jest
       .fn()
-      .mockImplementation(() => Promise.resolve(expectedReplies));
+      .mockResolvedValue(expectedReplies);
 
     const mockGetThreadUseCase = new GetThreadUseCase({
       commentRepository: mockCommentRepository,
@@ -149,13 +149,13 @@ describe("GetThreadUseCase", () => {
     /** mocking needed function */
     mockThreadRepository.getThreadById = jest
       .fn()
-      .mockImplementation(() => Promise.resolve(expectedThread));
+      .mockResolvedValue(expectedThread);
     mockCommentRepository.getCommentsByThreadId = jest
       .fn()
-      .mockImplementation(() => Promise.resolve(expectedComments));
+      .mockResolvedValue(expectedComments);
     mockThreadRepository.getRepliesByThreadId = jest
       .fn()
-      .mockImplementation(() => Promise.resolve(expectedReplies));
+      .mockResolvedValue(expectedReplies);
 
     const mockGetThreadUseCase = new GetThreadUseCase({
       commentRepository: mockCommentRepository,

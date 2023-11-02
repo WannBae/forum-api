@@ -1,29 +1,36 @@
+const CommentRepository = require("../../Domains/comments/CommentRepository");
 const AuthorizationError = require("../../Commons/exceptions/AuthorizationError");
 const NotFoundError = require("../../Commons/exceptions/NotFoundError");
 const AddedComment = require("../../Domains/comments/entities/AddedComment");
-const CommentRepository = require("../../Domains/comments/CommentRepository");
 
 class CommentRepositoryPostgres extends CommentRepository {
   constructor(pool, idGenerator) {
     super();
-    this._db = pool;
+    this._pool = pool;
     this._idGenerator = idGenerator;
   }
 
   async addComment(newComment) {
     const { content, threadId, owner } = newComment;
-
     const id = `comment-${this._idGenerator()}`;
     const createdAt = new Date().toISOString();
 
     const query = {
-      text: "INSERT INTO comments VALUES($1, $2, $3, $4, $5) RETURNING id, content, owner",
-      values: [id, threadId, owner, content, createdAt],
+      text: "INSERT INTO comments(id, thread_id, owner, content, date, is_deleted) VALUES($1, $2, $3, $4, $5, $6) RETURNING id, content, owner",
+      values: [id, threadId, owner, content, createdAt, false],
     };
 
-    const { rows } = await this._db.query(query);
+    const { rows } = await this._pool.query(query);
 
     return new AddedComment({ ...rows[0] });
+  }
+
+  async deleteComment(userId, threadId, commentId) {
+    const query = {
+      text: "UPDATE comments SET is_delete = 'true' WHERE id = $1 AND owner = $2 AND thread = $3",
+      values: [commentId, userId, threadId],
+    };
+    await this._pool.query(query);
   }
 
   async verifyCommentOwner(commentId, ownerId) {
@@ -32,7 +39,7 @@ class CommentRepositoryPostgres extends CommentRepository {
       values: [commentId, ownerId],
     };
 
-    const { rowCount } = await this._db.query(query);
+    const { rowCount } = await this._pool.query(query);
 
     if (!rowCount) {
       throw new AuthorizationError(
@@ -48,25 +55,25 @@ class CommentRepositoryPostgres extends CommentRepository {
       text: `SELECT comments.*, users.username
             FROM comments INNER JOIN users
             ON comments.owner = users.id
-            WHERE comments.thread_id = $1
+            WHERE comments.thread_id = $1 AND comments.is_deleted = false
             ORDER BY comments.date ASC`,
       values: [threadId],
     };
-    const { rows } = await this._db.query(query);
+    const { rows } = await this._pool.query(query);
 
     return rows;
   }
 
   async verifyAvailableCommentInThread(commentId, threadId) {
     const query = {
-      text: "SELECT 1 FROM comments WHERE id = $1 AND thread_id = $2",
+      text: "SELECT 1 FROM comments WHERE id = $1 AND thread_id = $2 AND is_deleted = false",
       values: [commentId, threadId],
     };
 
-    const { rowCount } = await this._db.query(query);
+    const { rowCount } = await this._pool.query(query);
 
     if (!rowCount) {
-      throw new NotFoundError("Comment Not Found In This Threads");
+      throw new NotFoundError("Comment Not Found In This Thread");
     }
 
     return rowCount;
@@ -78,7 +85,7 @@ class CommentRepositoryPostgres extends CommentRepository {
       values: [commentId],
     };
 
-    const { rowCount } = await this._db.query(query);
+    const { rowCount } = await this._pool.query(query);
 
     if (!rowCount) {
       throw new NotFoundError("Comment Not Found");

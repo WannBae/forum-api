@@ -1,4 +1,4 @@
-const DetailThead = require("../entities/DetailThread");
+const DetailThead = require("../DetailThread");
 
 describe("DetailThread Entity", () => {
   it("throws an error when payload lacks necessary properties", () => {

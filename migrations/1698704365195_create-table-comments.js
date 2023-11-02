@@ -1,4 +1,4 @@
-/* eslint-disable camelcase */
+w/* eslint-disable camelcase */
 
 exports.shorthands = undefined;
 

@@ -1,4 +1,4 @@
-const UserTableTestHelper = require("../../../../tests/UsersTableTestHelper");
+const UsersTableTestHelper = require("../../../../tests/UsersTableTestHelper");
 const ThreadTableTestHelper = require("../../../../tests/ThreadTableTestHelper");
 const CommentTableTestHelper = require("../../../../tests/CommentTestTableHelper");
 const RepliesTableTestHelper = require("../../../../tests/RepliesTableTestHelper");
@@ -11,7 +11,7 @@ const pool = require("../../database/postgres/pool");
 describe("ThreadRepositoryPostgres", () => {
   afterEach(async () => {
     await ThreadTableTestHelper.cleanTable();
-    await UserTableTestHelper.cleanTable();
+    await UsersTableTestHelper.cleanTable();
   });
 
   afterAll(async () => {
@@ -21,7 +21,7 @@ describe("ThreadRepositoryPostgres", () => {
   describe("addThread function", () => {
     it("should persist new thread and return added thread correctly", async () => {
       // Arrange
-      await UserTableTestHelper.addUser({
+      await UsersTableTestHelper.addUser({
         username: "dicoding",
         password: "secret_password",
       });
@@ -54,7 +54,7 @@ describe("ThreadRepositoryPostgres", () => {
 
     it("should return added thread correctly", async () => {
       // Arrange
-      await UserTableTestHelper.addUser({
+      await UsersTableTestHelper.addUser({
         username: "dicoding",
         password: "secret_password",
       });
@@ -98,7 +98,7 @@ describe("ThreadRepositoryPostgres", () => {
 
     it("should return thread correctly", async () => {
       // Arrange
-      await UserTableTestHelper.addUser({
+      await UsersTableTestHelper.addUser({
         username: "dicoding",
         password: "secret_password",
       });
@@ -134,7 +134,7 @@ describe("ThreadRepositoryPostgres", () => {
 
     it("should not throw NotFoundError when thread found", async () => {
       // Arrange
-      await UserTableTestHelper.addUser({
+      await UsersTableTestHelper.addUser({
         username: "dicoding",
         password: "secret_password",
       });
@@ -154,7 +154,7 @@ describe("ThreadRepositoryPostgres", () => {
   describe("getRepliesByThreadId function", () => {
     it("should return replies correctly", async () => {
       // Arrange
-      await UserTableTestHelper.addUser({
+      await UsersTableTestHelper.addUser({
         username: "dicoding",
         password: "secret_password",
       });

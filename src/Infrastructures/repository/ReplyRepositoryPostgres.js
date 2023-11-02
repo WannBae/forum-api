@@ -6,7 +6,7 @@ const ReplyRepository = require("../../Domains/replies/ReplyRepository");
 class ReplyRepositoryPostgres extends ReplyRepository {
   constructor(pool, idGenerator) {
     super();
-    this._db = pool;
+    this._pool = pool;
     this._idGenerator = idGenerator;
   }
 
@@ -20,7 +20,7 @@ class ReplyRepositoryPostgres extends ReplyRepository {
       values: [threadId, commentId, owner, content, createdAt],
     };
 
-    const { rows } = await this._db.query(query);
+    const { rows } = await this._pool.query(query);
 
     return new AddedReply({ ...rows[0], content, owner });
   }
@@ -37,7 +37,7 @@ class ReplyRepositoryPostgres extends ReplyRepository {
       values: [replyId, commentId, threadId],
     };
 
-    const { rowCount } = await this._db.query(query);
+    const { rowCount } = await this._pool.query(query);
 
     if (!rowCount) {
       throw new NotFoundError("Reply Not Found");
@@ -52,7 +52,7 @@ class ReplyRepositoryPostgres extends ReplyRepository {
       values: [id, owner],
     };
 
-    const { rowCount } = await this._db.query(query);
+    const { rowCount } = await this._pool.query(query);
 
     if (!rowCount) {
       throw new AuthorizationError(
@@ -69,7 +69,7 @@ class ReplyRepositoryPostgres extends ReplyRepository {
       values: [id],
     };
 
-    const { rowCount } = await this._db.query(query);
+    const { rowCount } = await this._pool.query(query);
 
     if (!rowCount) {
       throw new NotFoundError("Reply Not Found");
