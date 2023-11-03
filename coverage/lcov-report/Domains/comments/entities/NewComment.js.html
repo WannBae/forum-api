@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">9.09% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/11</span>
+                <span class='fraction'>1/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>10/10</span>
+                <span class='fraction'>0/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">9.09% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/11</span>
+                <span class='fraction'>1/11</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -90,49 +90,49 @@
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">class NewComment {
-  constructor(payload) {
-    this._validatePayload(payload);
-    const { content, threadId, owner } = payload;
-    this.content = content;
-    this.threadId = threadId;
-    this.owner = owner;
+<span class="fstat-no" title="function not covered" >  co</span>nstructor(payload) {
+<span class="cstat-no" title="statement not covered" >    this._validatePayload(payload);</span>
+    const { content, threadId, owner } = <span class="cstat-no" title="statement not covered" >payload;</span>
+<span class="cstat-no" title="statement not covered" >    this.content = content;</span>
+<span class="cstat-no" title="statement not covered" >    this.threadId = threadId;</span>
+<span class="cstat-no" title="statement not covered" >    this.owner = owner;</span>
   }
 &nbsp;
-  _validatePayload(payload) {
-    const { content, threadId, owner } = payload;
-    if (!content || !threadId || !owner) {
-      throw new Error("NEW_COMMENT.NOT_CONTAIN_NEEDED_PROPERTY");
+<span class="fstat-no" title="function not covered" >  _v</span>alidatePayload(payload) {
+    const { content, threadId, owner } = <span class="cstat-no" title="statement not covered" >payload;</span>
+<span class="cstat-no" title="statement not covered" >    if (!content || !threadId || !owner) {</span>
+<span class="cstat-no" title="statement not covered" >      throw new Error("NEW_COMMENT.NOT_CONTAIN_NEEDED_PROPERTY");</span>
     }
-    if (
+<span class="cstat-no" title="statement not covered" >    if (</span>
       typeof content !== "string" ||
       typeof threadId !== "string" ||
       typeof owner !== "string"
     ) {
-      throw new Error("NEW_COMMENT.NOT_MEET_DATA_TYPE_SPECIFICATION");
+<span class="cstat-no" title="statement not covered" >      throw new Error("NEW_COMMENT.NOT_MEET_DATA_TYPE_SPECIFICATION");</span>
     }
   }
 }
@@ -145,7 +145,7 @@ module.exports = NewComment;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-11-02T18:36:19.671Z
+                at 2023-11-03T19:55:20.691Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

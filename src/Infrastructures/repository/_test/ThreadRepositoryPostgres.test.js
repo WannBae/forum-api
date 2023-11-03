@@ -41,7 +41,7 @@ describe("ThreadRepositoryPostgres", () => {
       const addedThread = await threadRepositoryPostgres.addThread(newThread);
 
       // Assert
-      const threads = await ThreadTableTestHelper.findThreadById("thread-321");
+      const threads = await ThreadTableTestHelper.findThreadsById("thread-321");
       expect(addedThread).toStrictEqual(
         new AddedThread({
           id: "thread-321",
@@ -163,7 +163,7 @@ describe("ThreadRepositoryPostgres", () => {
         id: "comment-123",
         threadId: "thread-123",
       });
-      await RepliesTableTestHelper.addReply({
+      await RepliesTableTestHelper.createReply({
         id: "reply-123",
         commentId: "comment-123",
       });
