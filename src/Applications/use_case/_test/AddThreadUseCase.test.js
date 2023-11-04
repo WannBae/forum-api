@@ -15,8 +15,6 @@ describe("AddThreadUseCase", () => {
     const expectedAddedThread = new AddedThread({
       id: "thread-123",
       title: useCasePayload.title,
-      body: useCasePayload.body,
-      date: "2023-10-30T07:26:17.000Z",
       owner: useCasePayload.owner,
     });
 
@@ -27,13 +25,11 @@ describe("AddThreadUseCase", () => {
         new AddedThread({
           id: "thread-123",
           title: useCasePayload.title,
-          body: useCasePayload.body,
-          date: "2023-10-30T07:26:17.000Z",
           owner: useCasePayload.owner,
         })
       )
     );
-    
+
     const addThreadUseCase = new AddThreadUseCase({
       threadRepository: mockThreadRepository,
     });
