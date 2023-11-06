@@ -1,7 +1,6 @@
 const ThreadRepository = require("../../../Domains/threads/ThreadRepository");
 const CommentRepository = require("../../../Domains/comments/CommentRepository");
 const GetThreadUseCase = require("../../use_case/GetThreadById");
-const ReplyRepository = require("../../../Domains/replies/ReplyRepository");
 
 describe("GetThreadUseCase", () => {
   it("should orchestrating the add thread action correctly", async () => {
@@ -56,7 +55,6 @@ describe("GetThreadUseCase", () => {
     /** creating dependency of use case */
     const mockThreadRepository = new ThreadRepository();
     const mockCommentRepository = new CommentRepository();
-    const mockRepliesRepository = new ReplyRepository();
 
     /** mocking needed function */
     mockThreadRepository.getThreadById = jest.fn(() => expectedThread);
@@ -64,13 +62,11 @@ describe("GetThreadUseCase", () => {
     mockCommentRepository.getCommentsByThreadId = jest.fn(
       () => expectedComments
     );
-
-    mockRepliesRepository.getRepliesByThreadId = jest.fn(() => expectedReplies);
+    mockThreadRepository.getRepliesByThreadId = jest.fn(() => expectedReplies);
 
     const mockGetThreadUseCase = new GetThreadUseCase({
       commentRepository: mockCommentRepository,
       threadRepository: mockThreadRepository,
-      replyRepository: mockRepliesRepository,
     });
 
     // Action
@@ -92,7 +88,7 @@ describe("GetThreadUseCase", () => {
       useCasePayload.threadId
     );
 
-    expect(mockRepliesRepository.getRepliesByThreadId).toBeCalledWith(
+    expect(mockThreadRepository.getRepliesByThreadId).toBeCalledWith(
       useCasePayload.threadId
     );
   });
@@ -149,7 +145,6 @@ describe("GetThreadUseCase", () => {
     /** creating dependency of use case */
     const mockThreadRepository = new ThreadRepository();
     const mockCommentRepository = new CommentRepository();
-    const mockRepliesRepository = new ReplyRepository();
 
     /** mocking needed function */
     mockThreadRepository.getThreadById = jest.fn(() => expectedThread);
@@ -158,12 +153,11 @@ describe("GetThreadUseCase", () => {
       () => expectedComments
     );
 
-    mockRepliesRepository.getRepliesByThreadId = jest.fn(() => expectedReplies);
+    mockThreadRepository.getRepliesByThreadId = jest.fn(() => expectedReplies);
 
     const mockGetThreadUseCase = new GetThreadUseCase({
       commentRepository: mockCommentRepository,
       threadRepository: mockThreadRepository,
-      replyRepository: mockRepliesRepository,
     });
 
     // Action
@@ -182,7 +176,7 @@ describe("GetThreadUseCase", () => {
     expect(mockCommentRepository.getCommentsByThreadId).toBeCalledWith(
       useCasePayload.threadId
     );
-    expect(mockRepliesRepository.getRepliesByThreadId).toBeCalledWith(
+    expect(mockThreadRepository.getRepliesByThreadId).toBeCalledWith(
       useCasePayload.threadId
     );
   });
