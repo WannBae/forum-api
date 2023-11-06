@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1699105986690" clover="3.2.0">
-  <project timestamp="1699105986690" name="All files">
-    <metrics statements="602" coveredstatements="560" conditionals="173" coveredconditionals="171" methods="150" coveredmethods="141" elements="925" coveredelements="872" complexity="0" loc="602" ncloc="602" packages="22" files="59" classes="59"/>
+<coverage generated="1699281666040" clover="3.2.0">
+  <project timestamp="1699281666040" name="All files">
+    <metrics statements="603" coveredstatements="561" conditionals="173" coveredconditionals="171" methods="150" coveredmethods="141" elements="926" coveredelements="873" complexity="0" loc="603" ncloc="603" packages="22" files="59" classes="59"/>
     <package name="src.Applications.security">
       <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
       <file name="AuthenticationTokenManager.js" path="D:\submission-openmusic\forum-api\src\Applications\security\AuthenticationTokenManager.js">
@@ -20,7 +20,7 @@
       </file>
     </package>
     <package name="src.Applications.use_case">
-      <metrics statements="109" coveredstatements="109" conditionals="16" coveredconditionals="16" methods="29" coveredmethods="29"/>
+      <metrics statements="110" coveredstatements="110" conditionals="16" coveredconditionals="16" methods="29" coveredmethods="29"/>
       <file name="AddCommentUseCase.js" path="D:\submission-openmusic\forum-api\src\Applications\use_case\AddCommentUseCase.js">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="4" type="stmt"/>
@@ -101,17 +101,18 @@
         <line num="19" count="4" type="stmt"/>
       </file>
       <file name="GetThreadById.js" path="D:\submission-openmusic\forum-api\src\Applications\use_case\GetThreadById.js">
-        <metrics statements="10" coveredstatements="10" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="6"/>
-        <line num="3" count="2" type="stmt"/>
+        <metrics statements="11" coveredstatements="11" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="6"/>
         <line num="4" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
         <line num="30" count="2" type="stmt"/>
-        <line num="38" count="2" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
         <line num="40" count="2" type="stmt"/>
-        <line num="47" count="4" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="49" count="4" type="stmt"/>
       </file>
       <file name="LoginUserUseCase.js" path="D:\submission-openmusic\forum-api\src\Applications\use_case\LoginUserUseCase.js">
         <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -290,7 +291,7 @@
         <line num="11" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
-        <line num="23" count="6" type="stmt"/>
+        <line num="23" count="7" type="stmt"/>
       </file>
     </package>
     <package name="src.Domains.replies.entities">
