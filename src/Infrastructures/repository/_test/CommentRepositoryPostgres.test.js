@@ -102,6 +102,46 @@ describe("CommentRepositoryPostgres", () => {
       });
     });
 
+    describe("deleteComment function", () => {
+      it("should throw NotFoundError when comment is not available", async () => {
+        const commentRepositoryPostgres = new CommentRepositoryPostgres(
+          pool,
+          {}
+        );
+
+        await expect(
+          commentRepositoryPostgres.deleteComment(
+            "user-123",
+            "thread-123",
+            "comment-123"
+          )
+        ).rejects.toThrowError(NotFoundError);
+      });
+
+      it("should delete comment correctly", async () => {
+        await CommentsTableTestHelper.addComment({
+          id: "comment-123",
+          content: "first comment",
+          date: new Date("2023-01-19T00:00:00.000Z"),
+        });
+
+        const commentRepositoryPostgres = new CommentRepositoryPostgres(
+          pool,
+          {}
+        );
+
+        await commentRepositoryPostgres.deleteComment(
+          "user-123",
+          "thread-123",
+          "comment-123"
+        );
+
+        const comment =
+          await CommentsTableTestHelper.getCommentById("comment-123");
+        expect(comment[0].is_deleted).toEqual(true);
+      });
+    });
+
     describe("verifyCommentOwner function", () => {
       it("should return true when comment owner is the same as the payload", async () => {
         const newComment = new NewComment({

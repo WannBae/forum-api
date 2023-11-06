@@ -30,7 +30,11 @@ class CommentRepositoryPostgres extends CommentRepository {
       text: "UPDATE comments SET is_deleted = TRUE WHERE id = $1 AND owner = $2 AND thread_id = $3",
       values: [commentId, userId, threadId],
     };
-    await this._pool.query(query);
+    const result = await this._pool.query(query);
+
+    if (result.rowCount === 0) {
+      throw new NotFoundError("Comment Not Found");
+    }
   }
 
   async verifyCommentOwner(commentId, ownerId) {
