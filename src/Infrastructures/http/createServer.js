@@ -34,8 +34,8 @@ const createServer = async (container) => {
       sub: false,
       maxAgeSec: process.env.ACCESS_TOKEN_AGE,
     },
-    validate: (artifacts) => ({
-      isValid: true,
+    validate: (artifacts) => ({  //khusus bagian ini tambahkan cover testing
+      isValid: true, 
       credentials: {
         id: artifacts.decoded.payload.id,
       },

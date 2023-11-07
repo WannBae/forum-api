@@ -1,7 +1,8 @@
+/* istanbul ignore file */
 const pool = require("../src/Infrastructures/database/postgres/pool");
 
-class RepliesTestHelper {
-  static async createReply({
+const RepliesTestHelper = {
+  async createReply({
     id = "reply-123",
     commentId = "comment-123",
     owner = "user-123",
@@ -14,9 +15,9 @@ class RepliesTestHelper {
     };
 
     await pool.query(query);
-  }
+  },
 
-  static async findReplyById(id) {
+  async findReplyById(id) {
     const query = {
       text: "SELECT * FROM replies WHERE id = $1",
       values: [id],
@@ -25,19 +26,19 @@ class RepliesTestHelper {
     const result = await pool.query(query);
 
     return result.rows;
-  }
+  },
 
-  static async markReplyAsDeleted(id) {
+  async markReplyAsDeleted(id) {
     const query = {
       text: "UPDATE replies SET is_deleted = TRUE WHERE id = $1",
       values: [id],
     };
     await pool.query(query);
-  }
+  },
 
-  static async clearRepliesTable() {
+  async clearRepliesTable() {
     await pool.query("DELETE FROM replies");
-  }
-}
+  },
+};
 
 module.exports = RepliesTestHelper;

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">15.38% </span>
+                <span class="strong">46.15% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/26</span>
+                <span class='fraction'>12/26</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>2/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">15.38% </span>
+                <span class="strong">46.15% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/26</span>
+                <span class='fraction'>12/26</span>
             </div>
         
             
@@ -151,9 +151,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -195,18 +195,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -232,10 +232,10 @@ const AddedThread = require("../../Domains/threads/entities/AddedThread");
 const ThreadRepository = require("../../Domains/threads/ThreadRepository");
 &nbsp;
 class ThreadRepositoryPostgres extends ThreadRepository {
-<span class="fstat-no" title="function not covered" >  co</span>nstructor(pool, idGenerator) {
-<span class="cstat-no" title="statement not covered" >    super();</span>
-<span class="cstat-no" title="statement not covered" >    this._db = pool;</span>
-<span class="cstat-no" title="statement not covered" >    this._idGenerator = idGenerator;</span>
+  constructor(pool, idGenerator) {
+    super();
+    this._db = pool;
+    this._idGenerator = idGenerator;
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  as</span>ync addThread(newThread) {
@@ -276,19 +276,19 @@ class ThreadRepositoryPostgres extends ThreadRepository {
 <span class="cstat-no" title="statement not covered" >    return rows[0];</span>
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  as</span>ync verifyAvailableThread(threadId) {
-    const query = <span class="cstat-no" title="statement not covered" >{</span>
+  async verifyAvailableThread(threadId) {
+    const query = {
       text: "SELECT 1 FROM threads WHERE id = $1",
       values: [threadId],
     };
 &nbsp;
-    const { rowCount } = <span class="cstat-no" title="statement not covered" >await this._db.query(query);</span>
+    const { rowCount } = await this._db.query(query);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (!rowCount) {</span>
-<span class="cstat-no" title="statement not covered" >      throw new NotFoundError("Thread Not Found");</span>
+    if (!rowCount) {
+      throw new NotFoundError("Thread Not Found");
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return rowCount;</span>
+    return rowCount;
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  as</span>ync getRepliesByThreadId(threadId) {
@@ -316,7 +316,7 @@ module.exports = ThreadRepositoryPostgres;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-11-03T19:55:20.691Z
+                at 2023-11-07T22:30:23.795Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
