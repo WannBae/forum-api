@@ -7,6 +7,8 @@ const ReplyRepository = require("../../../Domains/replies/ReplyRepository");
 const AddReplyUseCase = require("../../use_case/AddReplyUseCase");
 
 describe("AddReplyUseCase", () => {
+  let rowCount = "thread-123";
+
   it("should orchestrate the add reply use case properly", async () => {
     // arrange
     const useCasePayload = {
@@ -30,7 +32,7 @@ describe("AddReplyUseCase", () => {
     /** mocking needed function */
     mockThreadRepository.verifyAvailableThread = jest
       .fn()
-      .mockImplementation(() => Promise.resolve());
+      .mockImplementation(() => Promise.resolve(rowCount));
     mockCommentRepository.verifyAvailableCommentInThread = jest
       .fn()
       .mockImplementation(() => Promise.resolve());
@@ -55,9 +57,7 @@ describe("AddReplyUseCase", () => {
 
     // assert
     expect(addedReply).toStrictEqual(expectedAddedReply);
-    expect(mockThreadRepository.verifyAvailableThread).toBeCalledWith(
-      useCasePayload.threadId
-    );
+    expect(mockThreadRepository.verifyAvailableThread).toBeCalledWith(rowCount);
     expect(mockCommentRepository.verifyAvailableCommentInThread).toBeCalledWith(
       useCasePayload.commentId,
       useCasePayload.threadId

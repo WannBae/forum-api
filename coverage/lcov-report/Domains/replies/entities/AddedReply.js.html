@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">9.09% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/11</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">9.09% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/11</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -90,49 +90,49 @@
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">class AddedReplies {
-<span class="fstat-no" title="function not covered" >  co</span>nstructor(payload) {
-<span class="cstat-no" title="statement not covered" >    this._validatePayload(payload);</span>
-    const { id, content, owner } = <span class="cstat-no" title="statement not covered" >payload;</span>
-<span class="cstat-no" title="statement not covered" >    this.id = id;</span>
-<span class="cstat-no" title="statement not covered" >    this.content = content;</span>
-<span class="cstat-no" title="statement not covered" >    this.owner = owner;</span>
+  constructor(payload) {
+    this._validatePayload(payload);
+    const { id, content, owner } = payload;
+    this.id = id;
+    this.content = content;
+    this.owner = owner;
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  _v</span>alidatePayload(payload) {
-    const { id, content, owner } = <span class="cstat-no" title="statement not covered" >payload;</span>
-<span class="cstat-no" title="statement not covered" >    if (!id || !content || !owner) {</span>
-<span class="cstat-no" title="statement not covered" >      throw new Error("ADDED_REPLY.NOT_CONTAIN_NEEDED_PROPERTY");</span>
+  _validatePayload(payload) {
+    const { id, content, owner } = payload;
+    if (!id || !content || !owner) {
+      throw new Error("ADDED_REPLY.NOT_CONTAIN_NEEDED_PROPERTY");
     }
-<span class="cstat-no" title="statement not covered" >    if (</span>
+    if (
       typeof id !== "string" ||
       typeof content !== "string" ||
       typeof owner !== "string"
     ) {
-<span class="cstat-no" title="statement not covered" >      throw new Error("ADDED_REPLY.NOT_MEET_DATA_TYPE_SPECIFICATION");</span>
+      throw new Error("ADDED_REPLY.NOT_MEET_DATA_TYPE_SPECIFICATION");
     }
   }
 }
@@ -145,7 +145,7 @@ module.exports = AddedReplies;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-11-07T22:30:23.795Z
+                at 2023-11-09T23:10:19.562Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

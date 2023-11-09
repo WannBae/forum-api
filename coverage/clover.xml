@@ -1,61 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1699397059171" clover="3.2.0">
-  <project timestamp="1699397059171" name="All files">
-    <metrics statements="44" coveredstatements="44" conditionals="6" coveredconditionals="6" methods="8" coveredmethods="8" elements="58" coveredelements="58" complexity="0" loc="44" ncloc="44" packages="2" files="2" classes="2"/>
-    <package name="http">
-      <metrics statements="31" coveredstatements="31" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
-      <file name="createServer.js" path="D:\submission-openmusic\forum-api\src\Infrastructures\http\createServer.js">
-        <metrics statements="31" coveredstatements="31" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
-        <line num="1" count="6" type="stmt"/>
-        <line num="2" count="6" type="stmt"/>
-        <line num="3" count="6" type="stmt"/>
-        <line num="4" count="6" type="stmt"/>
-        <line num="5" count="6" type="stmt"/>
-        <line num="6" count="6" type="stmt"/>
-        <line num="7" count="6" type="stmt"/>
-        <line num="8" count="6" type="stmt"/>
-        <line num="9" count="6" type="stmt"/>
-        <line num="11" count="6" type="stmt"/>
-        <line num="12" count="41" type="stmt"/>
-        <line num="23" count="41" type="stmt"/>
-        <line num="29" count="41" type="stmt"/>
-        <line num="37" count="16" type="stmt"/>
-        <line num="45" count="41" type="stmt"/>
-        <line num="68" count="41" type="stmt"/>
-        <line num="70" count="45" type="stmt"/>
-        <line num="72" count="45" type="cond" truecount="2" falsecount="0"/>
-        <line num="74" count="32" type="stmt"/>
-        <line num="77" count="32" type="cond" truecount="2" falsecount="0"/>
-        <line num="78" count="29" type="stmt"/>
-        <line num="82" count="29" type="stmt"/>
-        <line num="83" count="29" type="stmt"/>
-        <line num="87" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="88" count="2" type="stmt"/>
-        <line num="92" count="1" type="stmt"/>
-        <line num="96" count="1" type="stmt"/>
-        <line num="97" count="1" type="stmt"/>
-        <line num="101" count="13" type="stmt"/>
-        <line num="104" count="41" type="stmt"/>
-        <line num="107" count="6" type="stmt"/>
+<coverage generated="1699571419571" clover="3.2.0">
+  <project timestamp="1699571419571" name="All files">
+    <metrics statements="81" coveredstatements="81" conditionals="40" coveredconditionals="40" methods="26" coveredmethods="26" elements="147" coveredelements="147" complexity="0" loc="81" ncloc="81" packages="6" files="9" classes="9"/>
+    <package name="Applications.use_case">
+      <metrics statements="20" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <file name="AddCommentUseCase.js" path="D:\submission-openmusic\forum-api\src\Applications\use_case\AddCommentUseCase.js">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="7" type="stmt"/>
+        <line num="2" count="7" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="18" count="7" type="stmt"/>
+      </file>
+      <file name="AddReplyUseCase.js" path="D:\submission-openmusic\forum-api\src\Applications\use_case\AddReplyUseCase.js">
+        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="2" count="7" type="stmt"/>
+        <line num="3" count="7" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="24" count="7" type="stmt"/>
       </file>
     </package>
-    <package name="security">
-      <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
-      <file name="JwtTokenManager.js" path="D:\submission-openmusic\forum-api\src\Infrastructures\security\JwtTokenManager.js">
-        <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
-        <line num="1" count="6" type="stmt"/>
-        <line num="2" count="6" type="stmt"/>
-        <line num="6" count="7" type="stmt"/>
+    <package name="Domains.comments">
+      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
+      <file name="CommentRepository.js" path="D:\submission-openmusic\forum-api\src\Domains\comments\CommentRepository.js">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="27" count="11" type="stmt"/>
+      </file>
+    </package>
+    <package name="Domains.comments.entities">
+      <metrics statements="22" coveredstatements="22" conditionals="20" coveredconditionals="20" methods="4" coveredmethods="4"/>
+      <file name="AddedComment.js" path="D:\submission-openmusic\forum-api\src\Domains\comments\entities\AddedComment.js">
+        <metrics statements="11" coveredstatements="11" conditionals="10" coveredconditionals="10" methods="2" coveredmethods="2"/>
+        <line num="3" count="14" type="stmt"/>
+        <line num="4" count="12" type="stmt"/>
+        <line num="5" count="12" type="stmt"/>
+        <line num="6" count="12" type="stmt"/>
+        <line num="7" count="12" type="stmt"/>
+        <line num="11" count="14" type="stmt"/>
+        <line num="12" count="14" type="cond" truecount="5" falsecount="0"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="15" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="25" count="9" type="stmt"/>
+      </file>
+      <file name="NewComment.js" path="D:\submission-openmusic\forum-api\src\Domains\comments\entities\NewComment.js">
+        <metrics statements="11" coveredstatements="11" conditionals="10" coveredconditionals="10" methods="2" coveredmethods="2"/>
+        <line num="3" count="13" type="stmt"/>
+        <line num="4" count="9" type="stmt"/>
+        <line num="5" count="9" type="stmt"/>
+        <line num="6" count="9" type="stmt"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="11" count="13" type="stmt"/>
+        <line num="12" count="13" type="cond" truecount="5" falsecount="0"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="15" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="25" count="9" type="stmt"/>
+      </file>
+    </package>
+    <package name="Domains.replies">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+      <file name="ReplyRepository.js" path="D:\submission-openmusic\forum-api\src\Domains\replies\ReplyRepository.js">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="23" count="9" type="stmt"/>
+      </file>
+    </package>
+    <package name="Domains.replies.entities">
+      <metrics statements="22" coveredstatements="22" conditionals="20" coveredconditionals="20" methods="4" coveredmethods="4"/>
+      <file name="AddedReply.js" path="D:\submission-openmusic\forum-api\src\Domains\replies\entities\AddedReply.js">
+        <metrics statements="11" coveredstatements="11" conditionals="10" coveredconditionals="10" methods="2" coveredmethods="2"/>
+        <line num="3" count="10" type="stmt"/>
+        <line num="4" count="8" type="stmt"/>
+        <line num="5" count="8" type="stmt"/>
+        <line num="6" count="8" type="stmt"/>
+        <line num="7" count="8" type="stmt"/>
+        <line num="11" count="10" type="stmt"/>
+        <line num="12" count="10" type="cond" truecount="5" falsecount="0"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="15" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="25" count="9" type="stmt"/>
+      </file>
+      <file name="NewReply.js" path="D:\submission-openmusic\forum-api\src\Domains\replies\entities\NewReply.js">
+        <metrics statements="11" coveredstatements="11" conditionals="10" coveredconditionals="10" methods="2" coveredmethods="2"/>
+        <line num="3" count="11" type="stmt"/>
+        <line num="5" count="7" type="stmt"/>
         <line num="7" count="7" type="stmt"/>
-        <line num="11" count="15" type="stmt"/>
-        <line num="15" count="5" type="stmt"/>
-        <line num="19" count="5" type="stmt"/>
-        <line num="20" count="5" type="stmt"/>
-        <line num="21" count="4" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
-        <line num="29" count="2" type="stmt"/>
-        <line num="33" count="6" type="stmt"/>
+        <line num="8" count="7" type="stmt"/>
+        <line num="9" count="7" type="stmt"/>
+        <line num="13" count="11" type="stmt"/>
+        <line num="15" count="11" type="cond" truecount="5" falsecount="0"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="19" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="29" count="9" type="stmt"/>
+      </file>
+    </package>
+    <package name="Domains.threads">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <file name="ThreadRepository.js" path="D:\submission-openmusic\forum-api\src\Domains\threads\ThreadRepository.js">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="14" count="11" type="stmt"/>
       </file>
     </package>
   </project>
