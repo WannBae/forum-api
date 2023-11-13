@@ -64,12 +64,12 @@ class ThreadRepositoryPostgres extends ThreadRepository {
 
   async getRepliesByThreadId(threadId) {
     const query = {
-      text: `SELECT replies.*, users.username
-            FROM replies
-            LEFT JOIN comments ON replies.comment_id = comments.id
-            LEFT JOIN users ON replies.owner = users.id
+      text: `SELECT threads.*, users.username
+            FROM threads
+            LEFT JOIN comments ON threads.id = comments.thread_id
+            LEFT JOIN users ON threads.owner = users.id
             WHERE comments.thread_id = $1
-            ORDER BY replies.date ASC`,
+            ORDER BY threads.date ASC`,
       values: [threadId],
     };
 

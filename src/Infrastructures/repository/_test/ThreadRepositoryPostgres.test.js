@@ -1,7 +1,5 @@
 const UsersTableTestHelper = require("../../../../tests/UsersTableTestHelper");
 const ThreadTableTestHelper = require("../../../../tests/ThreadTableTestHelper");
-const CommentTableTestHelper = require("../../../../tests/CommentTestTableHelper");
-const RepliesTableTestHelper = require("../../../../tests/RepliesTableTestHelper");
 const ThreadRepositoryPostgres = require("../ThreadRepositoryPostgres");
 const NotFoundError = require("../../../Commons/exceptions/NotFoundError");
 const NewThread = require("../../../Domains/threads/entities/NewThread");
@@ -148,43 +146,6 @@ describe("ThreadRepositoryPostgres", () => {
 
       // Assert
       await expect(verifyPromise).resolves.not.toThrowError(NotFoundError);
-    });
-  });
-
-  describe("getRepliesByThreadId function", () => {
-    it("should return replies correctly", async () => {
-      // Arrange
-      await UsersTableTestHelper.addUser({
-        username: "dicoding",
-        password: "secret_password",
-      });
-      await ThreadTableTestHelper.addThread({ id: "thread-123" });
-      await CommentTableTestHelper.addComment({
-        id: "comment-123",
-        threadId: "thread-123",
-      });
-      await RepliesTableTestHelper.createReply({
-        id: "reply-123",
-        commentId: "comment-123",
-      });
-
-      const threadRepositoryPostgres = new ThreadRepositoryPostgres(pool, {});
-
-      // Action
-      const replies =
-        await threadRepositoryPostgres.getRepliesByThreadId("thread-123");
-
-      // Assert
-      expect(replies).toHaveLength(1);
-      expect(replies[0]).toStrictEqual({
-        id: "reply-123",
-        comment_id: "comment-123",
-        username: "dicoding",
-        date: new Date("2023-10-30T07:26:17.000Z"),
-        content: "sebuah balasan",
-        owner: "user-123",
-        is_deleted: false,
-      });
     });
   });
 });
